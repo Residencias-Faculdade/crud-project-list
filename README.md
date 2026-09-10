@@ -1,6 +1,10 @@
 # crud-project-list
 Web Component Angular para gestão de workspaces de infraestrutura. Implementa operações CRUD via REST e exporta a tag isolada &lt;project-list>.
 
+## Documentação
+
+- [Como usar o git](./git.md)
+
 # GUIA CRUD 1 — <project-list> (Pai) — Gerenciador de Projetos
 
 > **Equipe 1 | 4 pessoas | Objetivo: entregar URL funcionando em 29/09/2026**
