@@ -1,0 +1,214 @@
+/* Resets e Estilização Geral */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  padding: 30px;
+  color: #333333;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 15px;
+}
+
+/* Rótulos (Labels) - Alinhados à esquerda/começo */
+label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+  margin: 12px auto 4px auto;
+  font-weight: bold;
+  color: #555555;
+  font-size: 14px;
+}
+
+/* Entradas do Formulário */
+form input[type="text"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form input[type="text"]:focus,
+.filtro:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Botão Cadastrar */
+button[type="submit"] {
+  margin-top: 18px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Link de Dúvidas */
+a {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #6c757d;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Barra de Filtro e Adicionar */
+.barra {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.filtro {
+  padding: 8px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.adicionar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adicionar:hover {
+  background-color: #0056b3;
+}
+
+.filtrar {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filtrar:hover {
+  background-color: #5a6268;
+}
+
+/* Tabela de Dados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+  font-size: 14px;
+}
+
+th {
+  background-color: #343a40;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f8f9fa;
+}
+
+.id {
+  width: 60px;
+  text-align: center;
+}
+
+td:first-child {
+  text-align: center;
+  font-weight: bold;
+}
+
+.acoes {
+  width: 160px;
+  text-align: center;
+}
+
+td:last-child {
+  text-align: center;
+}
+
+/* Botões da Tabela */
+.editar {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.editar:hover {
+  background-color: #e0a800;
+}
+
+.excluir {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.excluir:hover {
+  background-color: #c82333;
+} 
