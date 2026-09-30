@@ -1,0 +1,77 @@
+/* Estilização Geral da Página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  padding: 40px 20px;
+}
+
+/* Título Principal */
+h1 {
+  text-align: center;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Rótulos / Labels (Alinhados no começo/esquerda) */
+label {
+  display: block;
+  text-align: left; /* Garante que o texto fique no começo */
+  width: 100%;
+  max-width: 320px;
+  margin: 15px auto 5px auto; /* Centraliza o bloco, mas mantém o texto à esquerda */
+  font-weight: bold;
+  color: #555555;
+}
+
+/* Campos de Texto / Inputs */
+input[type="text"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao clicar no Input */
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Botão Cadastrar */
+button[type="submit"] {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Link de Dúvidas */
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #6c757d;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}

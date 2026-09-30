@@ -1,0 +1,36 @@
+<h1>PROJETOS</h1>
+<form action="/projetos/cadastar" method="post">
+    <label for="Id">Id</label>
+    <input type="text" id="Id" name="Id" placeholder="Número do Id">
+
+    <label for="Projetos">Projetos</label>
+    <input type="text" id="Projetos" name="Projetos" placeholder="Nome do Projeto">
+
+    <label for="Ambiente">Ambiente</label>
+    <select id="ambiente" name="Ambiente">
+        <option value="dev" selected>Dev</option>
+        <option value="prod">Prod</option>
+    </select>
+
+
+
+    <div class="card-footer d-flex justify-content-end gap-2">
+
+        <button type="button" class="btn btn-secondary" (click)="enviarEventVoltarPagina()">
+            Voltar
+        </button>
+
+        @if(receberExibicao() == "CRIAR"){
+        <button type="button" class="" (click)="enviarEventOperacaoRealizada('CRIAR')">
+            Criar
+        </button>
+        }@else {
+        <button type="button" class="" (click)="enviarEventOperacaoRealizada('EDITAR')">
+            Editar
+        </button>
+        }
+
+    </div>
+
+</form>
+<a href="">DÚVIDAS!</a>

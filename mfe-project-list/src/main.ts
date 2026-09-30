@@ -1,6 +1,19 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { createApplication } from "@angular/platform-browser";
+import { ApplicationConfig } from "@angular/core"
+import { provideHttpClient } from "@angular/common/http";
+import { createCustomElement } from "@angular/elements";
+import { WebComponent } from "./app/web-component/web-component";
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient()
+  ]
+};
+
+(async () => {
+  const app = await createApplication(appConfig);
+
+  const mfe_project_list = createCustomElement(WebComponent, { injector: app.injector });
+
+  customElements.define("mfe-project-list", mfe_project_list);
+})();

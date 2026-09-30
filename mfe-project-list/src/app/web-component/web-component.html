@@ -1,0 +1,15 @@
+@if(this.pagina() == "LIST"){
+   <app-project-list
+   (eventEdicao)="escutarEventoTelaEdicao($event)"
+   (eventTelaNovoProjeto)="escutarEventoTelaCriacao()"
+   [projetosRecebidos]="repassarDadosProjetos()"
+   (eventExclusao)="escutarEventoExclusao($event)">
+   </app-project-list> 
+}@else {
+    <app-project-form
+    [receberDadosEdicao]="repassarDadosEdicao"
+    [receberExibicao]="repassarModeloExibicao"
+    (eventVoltarPagina)="escutarEventoVoltarPagina()"
+    (eventOperacaoRealizada)="escutarEventoOperacao($event)">
+    </app-project-form>
+}
