@@ -1,77 +1,103 @@
-/* Estilização Geral da Página */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
-  padding: 40px 20px;
+/* Título */
+.titulo-projeto {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Título Principal */
-h1 {
-  text-align: center;
-  color: #333333;
-  margin-bottom: 20px;
+/* Container do Formulário */
+.formulario-projeto {
+    background-color: #fcfcfc;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Rótulos / Labels (Alinhados no começo/esquerda) */
-label {
-  display: block;
-  text-align: left; /* Garante que o texto fique no começo */
-  width: 100%;
-  max-width: 320px;
-  margin: 15px auto 5px auto; /* Centraliza o bloco, mas mantém o texto à esquerda */
-  font-weight: bold;
-  color: #555555;
+/* Labels */
+.form-label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #4a4a4a;
 }
 
-/* Campos de Texto / Inputs */
-input[type="text"] {
-  width: 100%;
-  max-width: 320px;
-  padding: 10px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 14px;
-  box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
+/* Inputs e Select */
+.form-input, .form-select {
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não ultrapasse a largura total */
+    transition: border-color 0.3s ease;
 }
 
-/* Efeito ao clicar no Input */
-input[type="text"]:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+/* Efeito ao focar no input */
+.form-input:focus, .form-select:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
 }
 
-/* Botão Cadastrar */
-button[type="submit"] {
-  margin-top: 20px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 10px 24px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* Classes utilitárias do rodapé (caso não esteja usando Bootstrap no projeto) */
+.card-footer {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+.d-flex { display: flex; }
+.justify-content-end { justify-content: flex-end; }
+.gap-2 { gap: 8px; }
+
+/* Botões */
+.btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn:active {
+    transform: scale(0.98);
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
+/* Botão Voltar */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
 }
 
-/* Link de Dúvidas */
-a {
-  display: inline-block;
-  margin-top: 20px;
-  color: #6c757d;
-  font-weight: bold;
-  font-size: 13px;
-  text-decoration: none;
-  transition: color 0.2s;
+/* Botões Criar/Editar */
+.btn-primary {
+    background-color: #0d6efd;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
 }
 
-a:hover {
-  color: #007bff;
-  text-decoration: underline;
+/* Link de dúvidas */
+.link-duvidas {
+    display: inline-block;
+    margin-top: 15px;
+    color: #0d6efd;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.link-duvidas:hover {
+    text-decoration: underline;
+    color: #0a58ca;
 }
