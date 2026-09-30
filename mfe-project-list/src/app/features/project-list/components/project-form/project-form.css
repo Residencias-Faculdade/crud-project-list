@@ -1,124 +1,141 @@
-/* Configuração Geral da Página */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
-    padding: 30px;
-    color: #333;
+/* ===== CARD PRINCIPAL ===== */
+form {
+    width: 430px;
+    margin: 30px auto;
+    padding: 0 10px 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Título */
-.titulo-projeto {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* Container do Formulário */
-.formulario-projeto {
-    background-color: #ffffff;
-    padding: 24px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* Rótulos dos Campos */
-.form-label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #4a5568;
-}
-
-/* Campos de Texto e Seleção */
-.form-input, 
-.form-select {
-    padding: 10px 12px;
-    margin-bottom: 18px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 14px;
-    width: 100%;
+/* ===== TÍTULO ===== */
+h1 {
+    width: 430px;
+    margin: 30px auto 0 auto;
+    padding: 10px 15px;
     box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
 
-.form-input:focus, 
-.form-select:focus {
-    border-color: #3b82f6;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-}
-
-/* Rodapé do Formulário */
-.card-footer {
-    margin-top: 8px;
-    padding-top: 16px;
-    border-top: 1px solid #edf2f7;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.justify-content-end {
-    justify-content: flex-end;
-}
-
-.gap-2 {
-    gap: 8px;
-}
-
-/* Botões */
-.btn {
-    padding: 9px 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
     font-size: 14px;
-    font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-weight: normal;
+    color: #555;
+
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
 }
 
-.btn:active {
-    transform: scale(0.98);
-}
-
-/* Botão Voltar */
-.btn-secondary {
-    background-color: #64748b;
-    color: #ffffff;
-}
-
-.btn-secondary:hover {
-    background-color: #475569;
-}
-
-/* Botões Criar / Editar */
-.btn-primary {
-    background-color: #2563eb;
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    background-color: #1d4ed8;
-}
-
-/* Link de Dúvidas */
-.link-duvidas {
+/* ===== LABELS ===== */
+form label {
     display: inline-block;
-    margin-top: 16px;
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
+    width: 85px;
+    margin: 10px 5px 0 15px;
+
+    text-align: right;
+    font-size: 13px;
+    color: #444;
 }
 
-.link-duvidas:hover {
+/* ===== INPUTS ===== */
+form input,
+form select {
+    width: 290px;
+    height: 30px;
+    box-sizing: border-box;
+
+    margin-top: 10px;
+    padding: 5px 8px;
+
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+    font-size: 13px;
+    color: #555;
+    background-color: #fff;
+}
+
+/* Campo selecionado */
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 3px rgba(102, 175, 233, 0.4);
+}
+
+/* ===== ÁREA DOS BOTÕES ===== */
+.card-footer {
+    margin-top: 15px;
+    padding: 8px 0 0 0;
+
+    border-top: 1px solid #1254a0;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+/* ===== BOTÕES ===== */
+.card-footer button {
+    border: none;
+    border-radius: 3px;
+
+    padding: 7px 13px;
+
+    font-size: 13px;
+    color: rgb(49, 143, 224);
+
+    cursor: pointer;
+}
+
+/* Voltar */
+.card-footer button:first-child {
+    background-color: #067ae0;
+}
+
+/* ===== BOTÕES ===== */
+.card-footer button {
+    border: none;
+    border-radius: 3px;
+    padding: 7px 13px;
+    font-size: 13px;
+    color: rgb(14, 14, 14);
+    cursor: pointer;
+}
+
+/* Botão Voltar - cinza */
+.card-footer button:first-child {
+    background-color: #256eb7;
+}
+
+/* Botão Criar - azul */
+.card-footer button:last-child {
+    background-color: rgb(231, 231, 12);
+}
+
+/* Efeito ao passar o mouse */
+.card-footer button:hover {
+    opacity: 0.85;
+}
+
+/* Efeito ao passar o mouse */
+.card-footer button:hover {
+    opacity: 0.85;
+}
+
+/* ===== LINK DÚVIDAS ===== */
+a {
+    display: block;
+    width: 430px;
+    margin: -20px auto 30px auto;
+
+    text-align: right;
+
+    font-size: 13px;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:hover {
     text-decoration: underline;
-    color: #1d4ed8;
 }
