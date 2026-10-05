@@ -1,5 +1,6 @@
 @if(this.pagina() == "LIST"){
    <app-project-list
+   (eventProjetoSelecionado)="escutarEventoProjetoSelecionado($event)"
    (eventEdicao)="escutarEventoTelaEdicao($event)"
    (eventTelaNovoProjeto)="escutarEventoTelaCriacao()"
    [projetosRecebidos]="repassarDadosProjetos()"

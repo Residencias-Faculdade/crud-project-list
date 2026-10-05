@@ -1,8 +1,7 @@
-import { Component, OnInit, signal, Signal } from '@angular/core';
+import { Component, OnInit, output, signal, Signal } from '@angular/core';
 import { ProjectList } from '../features/project-list/components/project-list/project-list';
 import { ProjectForm } from '../features/project-list/components/project-form/project-form';
 import { ProjetosService } from '../features/project-list/services/projetos-service';
-
 
 @Component({
   selector: 'app-web-component',
@@ -19,6 +18,7 @@ export class WebComponent implements OnInit {
   };
   repassarModeloExibicao: "CRIAR" | "EDITAR" = "CRIAR";
   repassarDadosProjetos = signal<Projeto[]>([]);
+  projetoSelecionado = output<string>({ alias: "project-selected" });
 
   constructor(private projetoService: ProjetosService) { }
 
@@ -27,6 +27,7 @@ export class WebComponent implements OnInit {
     //Deixei o component pai responsavel por isso, para evitar varias requisições na API
     this.consumirDadosProjetos();
   }
+
 
   //Refatorando o form-project
   criarNovoProjeto(novoProjeto: Projeto) {
@@ -74,6 +75,7 @@ export class WebComponent implements OnInit {
         this.criarNovoProjeto(operacao.infoProjeto);
         break;
       case 'EDITAR':
+        console.log(operacao.infoProjeto.nome)
         this.editarProjeto(operacao.infoProjeto);
         break;
     }
@@ -90,6 +92,11 @@ export class WebComponent implements OnInit {
       })
   }
 
+  escutarEventoProjetoSelecionado(idProjeto: string) {
+    console.log("Evento emitido para o sistema!")
+    this.projetoSelecionado.emit(idProjeto);
+  }
+
   alterarPagina() {
     if (this.pagina() == "LIST") {
       this.pagina.set("FORM");
@@ -102,7 +109,8 @@ export class WebComponent implements OnInit {
     this.projetoService.buscarTodos()
       .subscribe({
         next: (projetosRecebidos) => {
-          this.repassarDadosProjetos.set(projetosRecebidos)
+          this.projetoService.definirQuantidadeProjetos(projetosRecebidos.length);
+          this.repassarDadosProjetos.set(projetosRecebidos);
         },
         error: (erro) => console.log(erro)
       })

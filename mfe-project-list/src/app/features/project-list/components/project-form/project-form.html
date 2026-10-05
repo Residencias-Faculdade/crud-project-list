@@ -1,35 +1,37 @@
 <h1>PROJETOS</h1>
 <form action="/projetos/cadastar" method="post">
+
+    @if(receberExibicao() != "CRIAR"){
     <label for="Id">Id</label>
-    <input type="text" id="Id" name="Id" placeholder="Número do Id">
+    <input type="text" id="Id" name="Id" placeholder="Número do Id" disabled [(ngModel)]="bindingDadosProjeto.id">
+    }
 
     <label for="Projetos">Projetos</label>
-    <input type="text" id="Projetos" name="Projetos" placeholder="Nome do Projeto">
+    <input type="text" id="Projetos" name="Projetos" placeholder="Nome do Projeto"
+        [(ngModel)]="bindingDadosProjeto.nome">
 
     <label for="Ambiente">Ambiente</label>
-    <select id="ambiente" name="Ambiente">
+    <select id="ambiente" name="Ambiente" [(ngModel)]="bindingDadosProjeto.ambiente">
         <option value="dev" selected>Dev</option>
         <option value="prod">Prod</option>
     </select>
 
 
 
-    <div class="card-footer d-flex justify-content-end gap-2">
-
-        <button type="button" class="btn btn-secondary" (click)="enviarEventVoltarPagina()">
+    <div class="divAcoes">
+        <button type="button" class="btnVoltar" (click)="enviarEventVoltarPagina()">
             Voltar
         </button>
 
         @if(receberExibicao() == "CRIAR"){
-        <button type="button" class="" (click)="enviarEventOperacaoRealizada('CRIAR')">
+        <button type="button" class="btnCriar" (click)="enviarEventOperacaoRealizada('CRIAR')">
             Criar
         </button>
         }@else {
-        <button type="button" class="" (click)="enviarEventOperacaoRealizada('EDITAR')">
+        <button type="button" class="btnEditar" (click)="enviarEventOperacaoRealizada('EDITAR')">
             Editar
         </button>
         }
-
     </div>
 
 </form>

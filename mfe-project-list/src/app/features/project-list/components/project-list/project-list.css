@@ -1,214 +1,387 @@
-/* Resets e Estilização Geral */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* =========================================
+   TÍTULO
+========================================= */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
-  padding: 30px;
-  color: #333333;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Título */
 h1 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+    width: 85%;
+    max-width: 800px;
+
+    margin: 0 auto 20px;
+
+    color: #2c3e50;
+    font-size: 24px;
+    text-align: center;
 }
 
-/* Formulário */
-form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin-bottom: 15px;
-}
+/* =========================================
+   TABELA
+========================================= */
 
-/* Rótulos (Labels) - Alinhados à esquerda/começo */
-label {
-  display: block;
-  text-align: left;
-  width: 100%;
-  max-width: 320px;
-  margin: 12px auto 4px auto;
-  font-weight: bold;
-  color: #555555;
-  font-size: 14px;
-}
-
-/* Entradas do Formulário */
-form input[type="text"] {
-  width: 100%;
-  max-width: 320px;
-  padding: 8px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-form input[type="text"]:focus,
-.filtro:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-}
-
-/* Botão Cadastrar */
-button[type="submit"] {
-  margin-top: 18px;
-  background-color: #28a745;
-  color: #ffffff;
-  border: none;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-button[type="submit"]:hover {
-  background-color: #218838;
-}
-
-/* Link de Dúvidas */
-a {
-  display: inline-block;
-  margin-bottom: 30px;
-  color: #6c757d;
-  font-weight: bold;
-  font-size: 13px;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-/* Barra de Filtro e Adicionar */
-.barra {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.filtro {
-  padding: 8px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 14px;
-  width: 200px;
-}
-
-.adicionar {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.adicionar:hover {
-  background-color: #0056b3;
-}
-
-.filtrar {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.filtrar:hover {
-  background-color: #5a6268;
-}
-
-/* Tabela de Dados */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 85%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    background-color: #ffffff;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-th, td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #dddddd;
-  font-size: 14px;
+
+/* =========================================
+   CABEÇALHO E CÉLULAS
+========================================= */
+
+th,
+td {
+    padding: 14px 18px;
+
+    border-bottom: 1px solid #dddddd;
+
+    font-size: 14px;
+
+    text-align: left;
 }
 
 th {
-  background-color: #343a40;
-  color: #ffffff;
-  font-weight: 600;
+    background-color: #343a40;
+
+    color: #ffffff;
+
+    font-weight: 600;
 }
 
-tr:hover {
-  background-color: #f8f9fa;
+
+/* =========================================
+   LINHAS DA TABELA
+========================================= */
+
+tbody tr {
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
 }
 
-.id {
-  width: 60px;
-  text-align: center;
+
+/* Efeito ao passar o mouse */
+
+tbody tr:hover {
+    background-color: #e9f2ff;
+
+    box-shadow: inset 4px 0 0 #007bff;
 }
 
+
+/* =========================================
+   COLUNA ID
+========================================= */
+
+th.id,
 td:first-child {
-  text-align: center;
-  font-weight: bold;
+    width: 70px;
+
+    text-align: center;
 }
 
-.acoes {
-  width: 160px;
-  text-align: center;
+.ambiente {
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
 }
 
+.dev {
+    background-color: #007bff;
+}
+
+.prod {
+    background-color:darkgreen ;
+}
+
+/* =========================================
+   COLUNA AÇÕES
+========================================= */
+
+th.acoes,
 td:last-child {
-  text-align: center;
+    width: 190px;
+
+    text-align: center;
 }
 
-/* Botões da Tabela */
+
+/* =========================================
+   BOTÃO EDITAR
+========================================= */
+
 .editar {
-  background-color: #ffc107;
-  color: #212529;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 4px;
+    background-color: #ffc107;
+
+    color: #212529;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 4px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    transition: 0.2s;
 }
 
 .editar:hover {
-  background-color: #e0a800;
+    background-color: #e0a800;
+
+    transform: translateY(-1px);
 }
 
+
+/* =========================================
+   BOTÃO EXCLUIR
+========================================= */
+
 .excluir {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: #dc3545;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 4px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .excluir:hover {
-  background-color: #c82333;
-} 
+    background-color: #c82333;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BOTÃO ADICIONAR
+========================================= */
+
+.divBtnAdicion {
+    width: 85%;
+    max-width: 800px;
+
+    margin: 10px auto 0;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+.adicionar {
+    background-color: #007bff;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 9px 16px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.adicionar:hover {
+    background-color: #0056b3;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        width: 95%;
+    }
+
+    table,
+    .barra,
+    .divBtnAdicion {
+        width: 95%;
+    }
+
+    th,
+    td {
+        padding: 12px 10px;
+
+        font-size: 13px;
+    }
+
+    th.acoes,
+    td:last-child {
+        width: 175px;
+    }
+
+    .editar,
+    .excluir {
+        padding: 7px 10px;
+
+        font-size: 12px;
+    }
+
+    .editar {
+        margin-right: 6px;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 15px 5px;
+    }
+
+    h1 {
+        width: 100%;
+
+        font-size: 21px;
+    }
+
+    .barra {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+    }
+
+    .filtro {
+        width: 160px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 10px 6px;
+
+        font-size: 12px;
+    }
+
+    th.acoes,
+    td:last-child {
+        width: 150px;
+    }
+
+    .editar,
+    .excluir {
+        padding: 6px 8px;
+
+        font-size: 11px;
+    }
+
+    .editar {
+        margin-right: 4px;
+    }
+
+    .divBtnAdicion {
+        width: 100%;
+
+        padding: 0 5px;
+    }
+}
+
+
+/* =========================================
+   CELULAR PEQUENO
+========================================= */
+
+@media (max-width: 400px) {
+
+    .barra {
+        justify-content: center;
+    }
+
+    .filtro {
+        width: 140px;
+    }
+
+    .filtrar {
+        padding: 9px 12px;
+    }
+
+    th,
+    td {
+        padding: 9px 5px;
+
+        font-size: 11px;
+    }
+
+    th.acoes,
+    td:last-child {
+        width: 135px;
+    }
+
+    .editar,
+    .excluir {
+        padding: 5px 6px;
+
+        font-size: 10px;
+    }
+
+    .editar {
+        margin-right: 3px;
+    }
+
+    .adicionar {
+        padding: 9px 12px;
+    }
+}

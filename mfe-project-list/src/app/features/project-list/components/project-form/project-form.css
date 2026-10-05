@@ -1,138 +1,250 @@
-/* ===== CARD PRINCIPAL ===== */
-form {
-    width: 430px;
-    margin: 30px auto;
-    padding: 0 10px 10px 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
+/* =========================================
+   TÍTULO
+========================================= */
 
-/* ===== TÍTULO ===== */
 h1 {
-    width: 430px;
-    margin: 30px auto 0 auto;
-    padding: 10px 15px;
-    box-sizing: border-box;
+    width: 520px;
+    max-width: calc(100% - 30px);
 
-    font-size: 14px;
+    margin: 35px auto 0;
+    padding: 16px 20px;
+
+    font-size: 18px;
     font-weight: normal;
-    color: #555;
+
+    color: #444;
 
     background-color: #f5f5f5;
+
     border: 1px solid #ddd;
     border-bottom: none;
-    border-radius: 4px 4px 0 0;
+
+    border-radius: 6px 6px 0 0;
 }
 
-/* ===== LABELS ===== */
-form label {
-    display: inline-block;
-    width: 85px;
-    margin: 10px 5px 0 15px;
 
-    text-align: right;
-    font-size: 13px;
-    color: #444;
-}
+/* =========================================
+   FORMULÁRIO
+========================================= */
 
-/* ===== INPUTS ===== */
-form input,
-form select {
-    width: 290px;
-    height: 30px;
-    box-sizing: border-box;
+form {
+    width: 520px;
+    max-width: calc(100% - 30px);
 
-    margin-top: 10px;
-    padding: 5px 8px;
+    margin: 0 auto 30px;
+
+    padding: 15px;
+
+    background-color: #fff;
 
     border: 1px solid #ddd;
-    border-radius: 3px;
 
-    font-size: 13px;
-    color: #555;
-    background-color: #fff;
+    border-radius: 0 0 6px 6px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-/* Campo selecionado */
+
+/* =========================================
+   LABELS
+========================================= */
+
+form label {
+    display: inline-block;
+
+    width: 100px;
+
+    margin: 13px 8px 0 10px;
+
+    font-size: 15px;
+
+    color: #444;
+
+    text-align: right;
+
+    vertical-align: middle;
+}
+
+
+/* =========================================
+   INPUTS E SELECT
+========================================= */
+
+form input,
+form select {
+    width: calc(100% - 125px);
+
+    height: 40px;
+
+    margin-top: 13px;
+
+    padding: 7px 10px;
+
+    font-size: 15px;
+
+    color: #555;
+
+    background-color: #fff;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+form input::placeholder {
+    color: #999;
+}
+
+
+/* =========================================
+   FOCO
+========================================= */
+
 form input:focus,
 form select:focus {
-    outline: none;
     border-color: #66afe9;
-    box-shadow: 0 0 3px rgba(102, 175, 233, 0.4);
+
+    box-shadow: 0 0 4px rgba(102, 175, 233, 0.4);
 }
 
-/* ===== ÁREA DOS BOTÕES ===== */
-.card-footer {
-    margin-top: 15px;
-    padding: 8px 0 0 0;
+
+/* =========================================
+   INPUT DESABILITADO
+========================================= */
+
+form input:disabled {
+    background-color: #eeeeee;
+
+    color: #777;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   ÁREA DOS BOTÕES
+========================================= */
+
+.divAcoes {
+    margin-top: 20px;
+
+    padding-top: 13px;
 
     border-top: 1px solid #1254a0;
 
     display: flex;
+
     justify-content: flex-end;
-    gap: 5px;
+
+    align-items: center;
+
+    gap: 10px;
 }
 
-/* ===== BOTÕES ===== */
-.card-footer button {
+
+/* =========================================
+   CONFIGURAÇÃO GERAL DOS BOTÕES
+========================================= */
+
+.divAcoes button {
+    min-width: 95px;
+
+    padding: 10px 18px;
+
+    font-size: 15px;
+
+    font-weight: normal;
+
     border: none;
-    border-radius: 3px;
 
-    padding: 7px 13px;
-
-    font-size: 13px;
-    color: rgb(49, 143, 224);
+    border-radius: 4px;
 
     cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        opacity 0.2s;
 }
 
-/* Voltar */
-.card-footer button:first-child {
-    background-color: #067ae0;
+/* =========================================
+   BOTÃO VOLTAR
+========================================= */
+
+.btnVoltar {
+    color: #fff;
+
+    background-color: #6c757d;
 }
 
-/* ===== BOTÕES ===== */
-.card-footer button {
-    border: none;
-    border-radius: 3px;
-    padding: 7px 13px;
-    font-size: 13px;
-    color: rgb(14, 14, 14);
-    cursor: pointer;
+.btnVoltar:hover {
+    background-color: #5a6268;
+
+    transform: translateY(-1px);
 }
 
-/* Botão Voltar - cinza */
-.card-footer button:first-child {
-    background-color: #256eb7;
+
+/* =========================================
+   BOTÃO CRIAR
+========================================= */
+
+.btnCriar {
+    color: #fff;
+
+    background-color: #007bff;
 }
 
-/* Botão Criar - azul */
-.card-footer button:last-child {
-    background-color: rgb(231, 231, 12);
+.btnCriar:hover {
+    background-color: #0056b3;
+
+    transform: translateY(-1px);
 }
 
-/* Efeito ao passar o mouse */
-.card-footer button:hover {
-    opacity: 0.85;
+/* =========================================
+   BOTÃO EDITAR
+========================================= */
+
+.btnEditar {
+    color: #111;
+
+    background-color: #ffc107;
 }
 
-/* Efeito ao passar o mouse */
-.card-footer button:hover {
-    opacity: 0.85;
+.btnEditar:hover {
+    background-color: #e0a800;
+
+    transform: translateY(-1px);
 }
 
-/* ===== LINK DÚVIDAS ===== */
+/* =========================================
+   LINK DÚVIDAS
+========================================= */
+
 a {
     display: block;
-    width: 430px;
-    margin: -20px auto 30px auto;
+
+    width: 520px;
+    max-width: calc(100% - 30px);
+
+    margin: -15px auto 30px;
+
+    font-size: 15px;
+
+    color: #337ab7;
 
     text-align: right;
 
-    font-size: 13px;
-    color: #337ab7;
     text-decoration: none;
 }
 

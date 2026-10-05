@@ -5,7 +5,7 @@ type Exibicao = 'EDITAR' | 'CRIAR';
 
 @Component({
   selector: 'app-project-form',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './project-form.html',
   styleUrl: './project-form.css',
 })

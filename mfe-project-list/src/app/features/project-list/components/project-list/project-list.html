@@ -1,19 +1,5 @@
 <h1>PROJETOS</h1>
 
-<div class="barra">
-
-    <button class="adicionar">
-        Adicionar
-    </button>
-
-    <input type="text" class="filtro" placeholder="Filtro">
-
-    <button class="filtrar">
-        Filtrar
-    </button>
-
-</div>
-
 <table>
 
     <thead>
@@ -26,23 +12,33 @@
     </thead>
 
     <tbody>
-
         @for(projeto of projetosRecebidos(); track projeto.id){
-        <tr>
+        <tr (click)="capturarEventos($event, 'SELECIONAR',projeto.id)">
             <td>{{projeto.id}}</td>
             <td>{{projeto.nome}}</td>
-            <td>{{projeto.ambiente}}</td>
             <td>
-                <button class="editar" (click)="enviarEventEdicao(projeto.id)">
+                @if (projeto.ambiente == "dev") {
+                <span class="ambiente dev">{{projeto.ambiente}}</span>
+                }@else {
+                    <span class="ambiente prod">{{projeto.ambiente}}</span>
+                }
+            </td>
+            <td>
+                <button class="editar" (click)="capturarEventos($event, 'EDITAR',projeto.id)">
                     Editar
                 </button>
-                <button class="excluir" (click)="enviarEventExclusao(projeto.id)">
+                <button class="excluir" (click)="capturarEventos($event, 'EXCLUIR',projeto.id)">
                     Excluir
                 </button>
             </td>
         </tr>
         }
-
     </tbody>
 
 </table>
+
+<div class="divBtnAdicion">
+    <button class="adicionar" (click)="enviarEventTelaNovoProjeto()">
+        Adicionar
+    </button>
+</div>

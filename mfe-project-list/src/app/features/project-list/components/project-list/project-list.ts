@@ -8,25 +8,33 @@ import { Component, input, output } from '@angular/core';
 })
 export class ProjectList {
   projetosRecebidos = input<Projeto[]>([]);
-  eventEdicao = output<string>();
   eventTelaNovoProjeto = output();
+  eventEdicao = output<string>();
   eventExclusao = output<string>();
+  eventProjetoSelecionado = output<string>();
 
   constructor() { }
-
-  enviarEventEdicao(id: string) {
-    this.eventEdicao.emit(id);
-  }
 
   enviarEventTelaNovoProjeto() {
     this.eventTelaNovoProjeto.emit();
   }
 
-  enviarEventExclusao(idProjeto: string) {
-    var resposta = window.confirm("Deseja excluir esse Projeto?");
-
-    if (resposta) {
-      this.eventExclusao.emit(idProjeto);
+  capturarEventos(event: MouseEvent, operacao: 'EDITAR' | 'SELECIONAR' | 'EXCLUIR', idProjeto: string) {
+    event.stopPropagation();
+    switch (operacao) {
+      case 'EDITAR':
+        this.eventEdicao.emit(idProjeto);
+        break;
+      case 'EXCLUIR':
+        var resposta = window.confirm("Deseja excluir esse Projeto?");
+        if (resposta) {
+          this.eventExclusao.emit(idProjeto);
+        }
+        break;
+      case 'SELECIONAR':
+        this.eventProjetoSelecionado.emit(idProjeto);
     }
+
   }
+
 }

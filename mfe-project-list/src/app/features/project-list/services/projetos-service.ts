@@ -7,12 +7,13 @@ import { Injectable } from '@angular/core';
 export class ProjetosService {
   private url = "http://localhost:1080/projetos";
   private readonly MINIMO_CARACTERES = 9;
+  private quantidade_projetos: number = 0;
+
   constructor(private httpClient: HttpClient) { }
 
-  private quantidade_projetos: number = 10;
-
   buscarTodos() {
-    return this.httpClient.get<Projeto[]>(this.url);
+    var projetos = this.httpClient.get<Projeto[]>(this.url)
+    return projetos;
   }
 
   criarNovoProjeto(novoProjeto: Projeto) {
@@ -24,7 +25,6 @@ export class ProjetosService {
     }
 
     novoProjeto.id = this.gerarNovoId();
-    console.log(novoProjeto.id);
     return this.httpClient.post(this.url, novoProjeto);
   }
 
@@ -45,11 +45,15 @@ export class ProjetosService {
 
   private validarNome(nomeProjeto: string): boolean {
     var analiseNome = nomeProjeto.trim();
-    return analiseNome.length < this.MINIMO_CARACTERES;
+    return analiseNome.length > this.MINIMO_CARACTERES;
   }
 
   private gerarNovoId(): string {
     this.quantidade_projetos += 1;
     return this.quantidade_projetos.toString();
+  }
+
+  public definirQuantidadeProjetos(quantidadeProjetos: number) { 
+    this.quantidade_projetos = quantidadeProjetos;
   }
 }

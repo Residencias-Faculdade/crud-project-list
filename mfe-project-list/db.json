@@ -1,0 +1,54 @@
+{
+    "projetos": [
+        {
+            "id": "1",
+            "nome": "Sistema de Gerenciamento de Usuários",
+            "ambiente": "dev"
+        },
+        {
+            "id": "2",
+            "nome": "API de Controle de Estoque",
+            "ambiente": "prod"
+        },
+        {
+            "id": "3",
+            "nome": "Sistema de Cadastro de Clientes",
+            "ambiente": "dev"
+        },
+        {
+            "id": "4",
+            "nome": "Aplicativo de Controle Financeiro",
+            "ambiente": "prod"
+        },
+        {
+            "id": "5",
+            "nome": "Plataforma de Gerenciamento de Tarefas",
+            "ambiente": "dev"
+        },
+        {
+            "id": "6",
+            "nome": "Sistema de Agendamento Online",
+            "ambiente": "prod"
+        },
+        {
+            "id": "7",
+            "nome": "API de Autenticação de Usuários",
+            "ambiente": "dev"
+        },
+        {
+            "id": "8",
+            "nome": "Sistema de Controle de Vendas",
+            "ambiente": "prod"
+        },
+        {
+            "id": "9",
+            "nome": "Dashboard de Indicadores",
+            "ambiente": "dev"
+        },
+        {
+            "id": "10",
+            "nome": "Sistema de Gerenciamento de produtos",
+            "ambiente": "prod"
+        }
+    ]
+}
