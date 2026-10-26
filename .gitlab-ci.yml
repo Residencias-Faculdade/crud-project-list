@@ -1,0 +1,36 @@
+stages:
+  - package
+  - publish
+  - verify
+
+variables:
+  IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+  IMAGE_LATEST: $CI_REGISTRY_IMAGE:latest
+
+default:
+  image: docker:27
+  tags:
+    - docker-host
+  before_script:
+    - echo "$CI_JOB_TOKEN" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+
+package:
+  stage: package
+  script:
+    - docker build --pull -t "$IMAGE" -t "$IMAGE_LATEST" .
+    - docker push "$IMAGE"
+
+publish:
+  stage: publish
+  needs:
+    - package
+  script:
+    - docker tag "$IMAGE" "$IMAGE_LATEST"
+    - docker push "$IMAGE_LATEST"
+
+verify:
+  stage: verify
+  needs:
+    - package
+  script:
+    - docker run --rm --entrypoint sh "$IMAGE" -c "nginx & sleep 2; wget -q -O /dev/null http://127.0.0.1/main.js"
