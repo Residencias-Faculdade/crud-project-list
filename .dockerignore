@@ -1,0 +1,8 @@
+.git
+.gitignore
+**/node_modules
+**/dist
+**/.angular
+**/coverage
+**/*.log
+mfe-project-list/docker-compose.yml
