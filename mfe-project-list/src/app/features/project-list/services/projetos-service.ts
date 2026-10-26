@@ -17,10 +17,7 @@ export class ProjetosService {
   }
 
   criarNovoProjeto(novoProjeto: Projeto) {
-    var nomeProjeto: string = novoProjeto.nome;
-
-    if (!this.validarNome(nomeProjeto)) {
-      alert("Nome inválido, poucos caracteres.");
+    if (!this.validarNome(novoProjeto.nome)) {
       return null;
     }
 
@@ -29,10 +26,7 @@ export class ProjetosService {
   }
 
   editarProjeto(projetoEditado: Projeto) {
-    var nomeProjeto: string = projetoEditado.nome;
-
-    if (!this.validarNome(nomeProjeto)) {
-      alert("Nome inválido, poucos caracteres.");
+    if (!this.validarNome(projetoEditado.nome)) {
       return null;
     }
 
@@ -49,11 +43,11 @@ export class ProjetosService {
   }
 
   private gerarNovoId(): string {
-    this.quantidade_projetos += 1;
-    return this.quantidade_projetos.toString();
+    // Usa timestamp + aleatório para nunca colidir (json-server dá 500 em id duplicado)
+    return `${Date.now().toString(36)}${Math.floor(Math.random() * 1e6).toString(36)}`;
   }
 
-  public definirQuantidadeProjetos(quantidadeProjetos: number) { 
+  public definirQuantidadeProjetos(quantidadeProjetos: number) {
     this.quantidade_projetos = quantidadeProjetos;
   }
 }

@@ -14,3 +14,15 @@
     (eventOperacaoRealizada)="escutarEventoOperacao($event)">
     </app-project-form>
 }
+
+@if (modalErroAberto) {
+<div class="modal-overlay" (click)="fecharModalErro()">
+    <div class="modal" (click)="$event.stopPropagation()">
+        <h2>Atenção</h2>
+        <p>{{ modalErroMsg }}</p>
+        <div class="modal-actions">
+            <button class="btn-confirm" (click)="fecharModalErro()">OK</button>
+        </div>
+    </div>
+</div>
+}

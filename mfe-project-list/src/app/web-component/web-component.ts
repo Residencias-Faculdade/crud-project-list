@@ -20,6 +20,10 @@ export class WebComponent implements OnInit {
   repassarDadosProjetos = signal<Projeto[]>([]);
   projetoSelecionado = output<string>({ alias: "project-selected" });
 
+  // Modal de validação (substitui alert)
+  modalErroAberto = false;
+  modalErroMsg = '';
+
   constructor(private projetoService: ProjetosService) { }
 
   ngOnInit() {
@@ -31,26 +35,44 @@ export class WebComponent implements OnInit {
 
   //Refatorando o form-project
   criarNovoProjeto(novoProjeto: Projeto) {
-    this.projetoService.criarNovoProjeto(novoProjeto)
-      ?.subscribe({
-        next: (projeto) => {
-          this.repassarDadosProjetos.update(projetos => [...projetos, projeto as Projeto])
-        },
-        error: (erro) => console.log("Erro: ", erro)
-      });
+    const req = this.projetoService.criarNovoProjeto(novoProjeto);
+    if (!req) {
+      this.abrirModalErro('Nome inválido: use mais de 9 caracteres.');
+      return;
+    }
+    req.subscribe({
+      next: (projeto) => {
+        this.repassarDadosProjetos.update(projetos => [...projetos, projeto as Projeto])
+      },
+      error: (erro) => this.abrirModalErro('Falha ao criar projeto. Tente novamente.')
+    });
   }
 
   editarProjeto(projetoEditado: Projeto) {
-    this.projetoService.editarProjeto(projetoEditado)
-      ?.subscribe({
-        next: () => {
-          this.repassarDadosProjetos.update(arrayProjetos =>
-            arrayProjetos.map(
-              projetoAtual => projetoAtual.id === projetoEditado.id ? projetoAtual = { ...projetoEditado } : projetoAtual
-            ));
-        },
-        error: (erro) => console.log("Erro: ", erro)
-      })
+    const req = this.projetoService.editarProjeto(projetoEditado);
+    if (!req) {
+      this.abrirModalErro('Nome inválido: use mais de 9 caracteres.');
+      return;
+    }
+    req.subscribe({
+      next: () => {
+        this.repassarDadosProjetos.update(arrayProjetos =>
+          arrayProjetos.map(
+            projetoAtual => projetoAtual.id === projetoEditado.id ? projetoAtual = { ...projetoEditado } : projetoAtual
+          ));
+      },
+      error: (erro) => this.abrirModalErro('Falha ao editar projeto. Tente novamente.')
+    })
+  }
+
+  abrirModalErro(msg: string): void {
+    this.modalErroMsg = msg;
+    this.modalErroAberto = true;
+  }
+
+  fecharModalErro(): void {
+    this.modalErroAberto = false;
+    this.modalErroMsg = '';
   }
 
   escutarEventoTelaEdicao(idProjeto: string) {
@@ -88,13 +110,17 @@ export class WebComponent implements OnInit {
         next: () => this.repassarDadosProjetos.update((projetos) =>
           projetos.filter((projetoAtual) => projetoAtual.id !== idProjeto))
         ,
-        error: (erro) => console.log("Erro: ", erro)
+        error: (erro) => this.abrirModalErro('Falha ao excluir projeto. Tente novamente.')
       })
   }
 
   escutarEventoProjetoSelecionado(idProjeto: string) {
-    console.log("Evento emitido para o sistema!")
+    // Propaga para a shell + outros MFEs via DOM event e localStorage
     this.projetoSelecionado.emit(idProjeto);
+    try {
+      localStorage.setItem('selectedProjectId', idProjeto);
+      window.dispatchEvent(new CustomEvent('project-selected', { detail: idProjeto }));
+    } catch { /* ignore */ }
   }
 
   alterarPagina() {

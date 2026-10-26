@@ -1,4 +1,5 @@
 <h1>PROJETOS</h1>
+<p class="hint">Clique em uma linha para vincular o projeto ao Gerenciamento de Membros.</p>
 
 <table>
 
@@ -12,9 +13,9 @@
     </thead>
 
     <tbody>
-        @for(projeto of projetosRecebidos(); track projeto.id){
+        @for(projeto of projetosPaginados(); track projeto.id){
         <tr (click)="capturarEventos($event, 'SELECIONAR',projeto.id)">
-            <td>{{projeto.id}}</td>
+            <td>{{ numeroDe(projeto.id) }}</td>
             <td>{{projeto.nome}}</td>
             <td>
                 @if (projeto.ambiente == "dev") {
@@ -42,3 +43,26 @@
         Adicionar
     </button>
 </div>
+
+<div class="paginacao">
+    <button class="pag-btn" (click)="paginaAnterior()" [disabled]="paginaAtual() <= 1">
+        ← Anterior
+    </button>
+    <span class="pag-info">Página {{ paginaAtual() }} de {{ totalPaginas() }} ({{ projetosRecebidos().length }} projetos)</span>
+    <button class="pag-btn" (click)="proximaPagina()" [disabled]="paginaAtual() >= totalPaginas()">
+        Próxima →
+    </button>
+</div>
+
+@if (modalExclusaoAberto) {
+<div class="modal-overlay" (click)="fecharModalExclusao()">
+    <div class="modal" (click)="$event.stopPropagation()">
+        <h2>Excluir projeto</h2>
+        <p>Deseja excluir o projeto <strong>#{{ numeroPendenteExclusao }}</strong>? Esta ação não pode ser desfeita.</p>
+        <div class="modal-actions">
+            <button class="btn-cancel" (click)="fecharModalExclusao()">Cancelar</button>
+            <button class="btn-confirm" (click)="confirmarExclusao()">Excluir</button>
+        </div>
+    </div>
+</div>
+}
