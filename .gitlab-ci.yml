@@ -24,6 +24,8 @@ publish:
   stage: publish
   needs:
     - package
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - docker tag "$IMAGE" "$IMAGE_LATEST"
     - docker push "$IMAGE_LATEST"
